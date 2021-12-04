@@ -13,7 +13,6 @@ local function create_win(bufnr, num_ele, width, title)
     num_ele = 10
   end
   local line, col = util.get_cursor_pos(height)
-  print(title)
   local win_id, win = popup.create(bufnr, {
     highlight = "LspActionsSelectWindow",
     title = title,
@@ -53,6 +52,7 @@ local function select(items, opts, on_choice)
   local bufnr = vim.api.nvim_create_buf(false, false)
   vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, data_tbl)
   vim.api.nvim_buf_set_option(bufnr, "modifiable", false)
+  print(opts.prompt)
   create_win(bufnr, #items, width, opts.prompt)
 
   local function close()
