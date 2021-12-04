@@ -13,6 +13,7 @@ local function create_win(bufnr, num_ele, width, title)
     num_ele = 10
   end
   local line, col = util.get_cursor_pos(height)
+  print(title)
   local win_id, win = popup.create(bufnr, {
     highlight = "LspActionsSelectWindow",
     title = title,
